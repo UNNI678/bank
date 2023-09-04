@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KYC FORM</title>
+</head>
+<body id="bg" style="background-image:url('{% static 'img/fmimg.jpg' %}');">
+<h1 style="text-align:center;">APPLICATION FORM</h1>
+<form method="post" action="form" style="text-align:center;">
+     {% csrf_token %}
+     <input type="text" name="name" placeholder="Enter Your Name"><br>
+     <br>
+     <input type="email" name="email" placeholder="Email Id"><br>
+     <br>
+     <input type="text" name="phone" placeholder="Phone Number"><br>
+     <br>
+     <input type="number" name="age" placeholder="Age"><br>
+     <br>
+     <label>Date of birth:</label><br>
+     <br>
+     <input type="date" name="dob" placeholder="Date Of Birth"><br>
+     <br>
+     <label>Gender</label><br>
+     <br>
+     <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+    Male
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Female
+  </label>
+</div>
+     <br>
+     <input type="text" name="address" placeholder="Address"><br>
+     <br>
+     <p>Account Type</p>
+<select>
+     <option value="">---select---</option>
+     <option value="savings">savings</option>
+     <option value="current">current</option>
+</select><br>
+     <br>
+     <div>Payment</div><br>
+     <input type="checkbox" name="correct">Debit Card
+     <input type="checkbox" name="correct">Credit Card
+     <input type="checkbox" name="correct">Cheque Book<br>
+     <br>
+     <p>District</p>
+     <div class="col-xs-6">
+  <select class="form-control" name="select1" id="select1">
+     <option value="0">-select district-</option>
+     <option value="1">Thiruvananthapuram</option>
+     <option value="2">Eranakulam</option>
+     <option value="3">Thrissur</option>
+     <option value="4">Kozhikode</option>
+     <option value="5">Idukki</option><br>
+     <br>
+</select>
+     </div>
+     <p>City</p>
+  <div class="col-xs-6">
+  <select class="form-control" name="select1" id="select2">
+     <option value="0">-select City-</option>
+     <option value="1">Kattakkada</option>
+     <option value="1">Neyyattinkara</option>
+     <option value="2">Aluva</option>
+     <option value="2">Kaloor</option>
+     <option value="3">Puthur</option>
+     <option value="3">Peechi</option>
+     <option value="4">Feroke</option>
+     <option value="4">Vadakara</option>
+     <option value="5">Thodupuzha</option>
+     <option value="5">Kattappana</option>
+     <br>
+</select>
+  </div>
+     <br>
+     <input type="password" name="password" placeholder="Password"><br>
+     <br>
+     <button onclick="myFunction()">Submit</button>
+<button class="btn btn-success"><a href="/">BACK TO HOME</a></button>
+<script>
+function myFunction() {
+  alert("Application Submitted");
+}
+
+</script>
+
+
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+ //Reference: https://jsfiddle.net/fwv18zo1/
+var $select1 = $( '#select1' ),
+		$select2 = $( '#select2' ),
+    $options = $select2.find( 'option' );
+
+$select1.on( 'change', function() {
+	$select2.html( $options.filter( '[value="' + this.value + '"]' ) );
+} ).trigger( 'change' );
+</script>
+</body>
+</html>
